@@ -10,6 +10,8 @@ import {
 } from "@tanstack/react-router";
 import Layout from "./Components/Layout/Layout";
 
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+
 //3shan atba2 ellazy loading // y3ny elcomponent msh hy7mel awl  aft7 elproject => hy7ml bs lw ft7to w da byshl elbundling
 const Home = lazyRouteComponent(() => import("./Pages/Home/Home"));
 const About = lazyRouteComponent(() => import("./Pages/About/About"));
@@ -18,7 +20,14 @@ const Cart = lazyRouteComponent(() => import("./Pages/Cart/Cart"));
 
 // b create elroot elly howa layout elly h3rd gowah elchildren
 const rootRoute = createRootRoute({
-  component: Layout,
+  // component: Layout,
+
+  component: () => (
+    <>
+      <Layout />
+      {import.meta.env.DEV && <TanStackRouterDevtools />}
+    </>
+  ),
 });
 
 // habda2 acreate elroutes
@@ -58,9 +67,12 @@ const routeTree = rootRoute.addChildren([
 const router = createRouter({ routeTree });
 
 function App() {
+  console.log("DEV mode:", import.meta.env.DEV);
+
   return (
     <>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+      </RouterProvider>
     </>
   );
 }
