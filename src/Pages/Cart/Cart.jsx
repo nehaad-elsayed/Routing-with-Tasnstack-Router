@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
 export default function Cart() {
   return (
-    <div>
-      <h1>My Cart</h1>
-    </div>
+    <>
+      <section  className="container" style={{ minHeight: "50vh" }}>
+        <div>
+          <h1>My Cart</h1>
+        </div>
+      </section>
+    </>
   );
 }

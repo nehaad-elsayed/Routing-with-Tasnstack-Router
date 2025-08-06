@@ -1,5 +1,13 @@
 import React from "react";
 
 export default function Products() {
-  return <h1>Products</h1>;
+  return (
+    <>
+      <section  className="container" style={{ minHeight: "50vh" }}>
+        <div>
+          <h1>Products</h1>
+        </div>
+      </section>
+    </>
+  );
 }
